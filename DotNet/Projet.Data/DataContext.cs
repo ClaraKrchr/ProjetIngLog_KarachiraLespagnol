@@ -14,10 +14,12 @@ namespace Projet.Data
         }
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Facture> Factures { get; set; }
+        public DbSet<Produit> Produits { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlite("Data Source=database.db");
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=database.db");
+        }
     }
 }

@@ -37,7 +37,7 @@
                 options.UseSqlServer(configuration.GetConnectionString("Database"));
                 options.EnableSensitiveDataLogging();
             });
-            collection.AddTransient<DataRepository>();
+            //collection.AddTransient<DataRepository>();
         }
     }
 }

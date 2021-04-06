@@ -2,10 +2,9 @@
 
 namespace Projet.Data
 {
-    public class DataRepository : DbContext
+    public class DataRepository
     {
-        public DataRepository(DbContextOptions options)
-            : base(options)
+        public DataRepository()
         {
         }
     }
