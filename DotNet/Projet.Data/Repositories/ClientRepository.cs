@@ -46,5 +46,11 @@ namespace Projet.Data.Repositories
             _context.Remove(client);
             return await _context.SaveChangesAsync();
         }
+
+        //public async Task<List<Client>> GetAllClients(Client client)
+        //{
+        //    List<Client> clients = await _context.Clients.ToList();
+        //    return clients;
+        //}
     }
 }
