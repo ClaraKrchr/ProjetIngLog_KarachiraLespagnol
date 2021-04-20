@@ -31,6 +31,10 @@ namespace Projet
             services.AddDbContext<DataContext>();
             services.AddTransient<IClientService, ClientService>();
             services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IFactureService, FactureService>();
+            services.AddTransient<IFactureRepository, FactureRepository>();
+            services.AddTransient<IProduitService, ProduitService>();
+            services.AddTransient<IProduitRepository, ProduitRepository>();
             services.AddControllers();
 
             // Register the Swagger generator, defining 1 or more Swagger documents

@@ -13,8 +13,8 @@ namespace Projet.Data.ModelBuilders
             CreateClientModel(modelBuilder);
             CreateFactureModel(modelBuilder);
             CreateProduitModel(modelBuilder);
-/*            CreateFactureProduitModel(modelBuilder);
-*/        }
+            // CreateFactureProduitModel(modelBuilder);
+        }
 
         private static void CreateClientModel(ModelBuilder modelBuilder)
         {
@@ -42,11 +42,11 @@ namespace Projet.Data.ModelBuilders
             modelBuilder.Entity<Produit>().Property(p => p.Prix).IsRequired();
         }
 
-       /* private static void CreateFactureProduitModel(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ProduitFacture>().HasKey(x => new { x.FactureId, x.ProduitId });
-            modelBuilder.Entity<ProduitFacture>().HasOne(x => x.Facture).WithMany(y => y.ProduitFactures).HasForeignKey(x => x.FactureId);
-            modelBuilder.Entity<ProduitFacture>().HasOne(x => x.Produit).WithMany(y => y.ProduitFactures).HasForeignKey(x => x.ProduitId);
-        }*/
+       //private static void CreateFactureProduitModel(ModelBuilder modelBuilder)
+       // {
+       //     modelBuilder.Entity<ProduitFacture>().HasKey(x => new { x.FactureId, x.ProduitId });
+       //     modelBuilder.Entity<ProduitFacture>().HasOne(x => x.Facture).WithMany(y => y.ProduitFactures).HasForeignKey(x => x.FactureId);
+       //     modelBuilder.Entity<ProduitFacture>().HasOne(x => x.Produit).WithMany(y => y.ProduitFactures).HasForeignKey(x => x.ProduitId);
+       // }
     }
 }

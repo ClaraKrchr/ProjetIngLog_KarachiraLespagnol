@@ -9,7 +9,7 @@ using Projet.Data;
 namespace Projet.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210406145255_Initial")]
+    [Migration("20210420115240_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,9 @@ namespace Projet.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Facture")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Nom")
                         .HasColumnType("TEXT");

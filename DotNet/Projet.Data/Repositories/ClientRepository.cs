@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Projet.Data.Models;
 
@@ -33,11 +34,11 @@ namespace Projet.Data.Repositories
             return client;
         }
 
-        //public async Task<Client> GetAllItem(Client client)
-        //{
-        //    List<Client> client = await _context.Clients.ToList();
-        //    return client;
-        //}
+        public async Task<ICollection<string>> GetAllClients()
+        {
+            List<string> client = _context.Clients.Select(x => x.Nom).ToList();
+            return client;
+        }
 
         public async Task<int> DeleteClient(int id)
         {

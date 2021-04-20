@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Projet.Data.Models;
 
 namespace Projet.Data.Repositories
@@ -9,5 +10,7 @@ namespace Projet.Data.Repositories
         Task<int> DeleteClient(int id);
         Task<Client> GetClient(int id);
         Task<Client> UpdateClient(Client client);
+
+        Task<ICollection<string>> GetAllClients();
     }
 }

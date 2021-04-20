@@ -8,7 +8,7 @@ namespace Projet.Data.Models
     {
         public int Id { get; set; }
 
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
 
         public int ClientId { get; set; }
 
@@ -19,7 +19,6 @@ namespace Projet.Data.Models
         public DateTime DatePaiement { get; set; }
 
         public int Prix { get; set; }
-
-/*        public ICollection<ProduitFacture> ProduitFactures { get; set; }
-*/    }
+        public virtual ICollection<ProduitFacture> ProduitFactures { get; set; }
+    }
 }

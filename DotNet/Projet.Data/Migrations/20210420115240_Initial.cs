@@ -32,7 +32,8 @@ namespace Projet.Data.Migrations
                     Nom = table.Column<string>(type: "TEXT", nullable: true),
                     Stock = table.Column<int>(type: "INTEGER", nullable: false),
                     Photo = table.Column<string>(type: "TEXT", nullable: true),
-                    Prix = table.Column<int>(type: "INTEGER", nullable: false)
+                    Prix = table.Column<int>(type: "INTEGER", nullable: false),
+                    Facture = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
