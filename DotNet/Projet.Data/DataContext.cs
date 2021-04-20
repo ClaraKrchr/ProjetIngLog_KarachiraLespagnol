@@ -16,6 +16,7 @@ namespace Projet.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Facture> Factures { get; set; }
         public DbSet<Produit> Produits { get; set; }
+        public DbSet<ProduitFacture> ProduitFactures { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

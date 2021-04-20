@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Projet.Data.Models;
 
@@ -11,6 +11,6 @@ namespace Projet.Data.Repositories
         Task<Client> GetClient(int id);
         Task<Client> UpdateClient(Client client);
 
-        Task<ICollection<string>> GetAllClients();
+        //Task<ICollection<string>> GetAllClients();
     }
 }

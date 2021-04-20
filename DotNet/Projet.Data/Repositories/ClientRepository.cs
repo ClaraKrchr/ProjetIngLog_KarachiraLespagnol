@@ -34,11 +34,11 @@ namespace Projet.Data.Repositories
             return client;
         }
 
-        public async Task<ICollection<string>> GetAllClients()
-        {
-            List<string> client = _context.Clients.Select(x => x.Nom).ToList();
-            return client;
-        }
+        //public async Task<ICollection<Client>> GetAllClients()
+        //{
+        //    List<Client> client = _context.Clients.ToList();
+        //    return client;
+        //}
 
         public async Task<int> DeleteClient(int id)
         {

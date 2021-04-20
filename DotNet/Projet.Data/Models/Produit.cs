@@ -16,6 +16,6 @@ namespace Projet.Data.Models
 
         public int Prix { get; set; }
 
-        // public virtual ICollection<ProduitFacture> ProduitFactures { get; set; }
+        public virtual ICollection<ProduitFacture> ProduitFactures { get; set; }
     }
 }
