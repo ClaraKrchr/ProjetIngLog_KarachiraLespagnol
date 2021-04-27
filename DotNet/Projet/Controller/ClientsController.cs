@@ -81,6 +81,20 @@ namespace Projet.Controller
             }
         }
 
+        [HttpGet("all/Client")]
+        public ActionResult<List<ClientDto>> GetAllClients()
+        {
+            try
+            {
+                return this.clientService.GetAllClients();
+            }
+
+            catch (Exception e)
+            {
+                return this.StatusCode(500, "Internal Server error");
+            }
+        }
+
         //DELETE : api/Shop/5
         [HttpDelete("{id}/DeleteClient")]
         public async Task<IActionResult> DeleteClient(int id)

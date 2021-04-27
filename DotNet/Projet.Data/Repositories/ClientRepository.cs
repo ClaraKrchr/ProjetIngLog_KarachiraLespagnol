@@ -34,12 +34,6 @@ namespace Projet.Data.Repositories
             return client;
         }
 
-        //public async Task<ICollection<Client>> GetAllClients()
-        //{
-        //    List<Client> client = _context.Clients.ToList();
-        //    return client;
-        //}
-
         public async Task<int> DeleteClient(int id)
         {
             Client client = await _context.Clients.FindAsync(id);
@@ -47,10 +41,10 @@ namespace Projet.Data.Repositories
             return await _context.SaveChangesAsync();
         }
 
-        //public async Task<List<Client>> GetAllClients(Client client)
-        //{
-        //    List<Client> clients = await _context.Clients.ToList();
-        //    return clients;
-        //}
+        public List<Client> GetAllClients()
+        {
+            List<Client> clients = _context.Clients.ToList();
+            return clients;
+        }
     }
 }

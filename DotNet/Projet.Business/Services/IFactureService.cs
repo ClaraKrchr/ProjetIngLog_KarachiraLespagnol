@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Projet.Business.DTO;
+using System.Collections.Generic;
 using Projet.Data.Models;
 
 namespace Projet.Business.Services
@@ -9,6 +10,7 @@ namespace Projet.Business.Services
         Task<FactureDto> AddFacture(FactureDto factureDto);
         Task<int> DeleteFacture(int id);
         Task<FactureDto> GetFacture(int id);
+        List<FactureDto> GetAllFactures();
         Task<FactureDto> UpdateFacture(FactureDto factureDto);
     }
 }

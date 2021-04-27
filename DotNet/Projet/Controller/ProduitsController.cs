@@ -80,6 +80,20 @@ namespace Projet.Controller
             }
         }
 
+        [HttpGet("all/Produit")]
+        public ActionResult<List<ProduitDto>> GetAllProduits()
+        {
+            try
+            {
+                return this.produitService.GetAllProduits();
+            }
+
+            catch (Exception e)
+            {
+                return this.StatusCode(500, "Internal Server error");
+            }
+        }
+
         //DELETE : api/Shop/5
         [HttpDelete("{id}/DeleteProduit")]
         public async Task<IActionResult> DeleteProduit(int id)

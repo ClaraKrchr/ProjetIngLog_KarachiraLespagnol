@@ -45,6 +45,13 @@ namespace Projet.Business.Services
             return clientDto;
         }
 
+        public List<ClientDto> GetAllClients()
+        {
+            List<Client> clients = clientRepository.GetAllClients();
+            List<ClientDto> clientsDto = ListModelToDto(clients);
+            return clientsDto;
+        }
+
         public async Task<int> DeleteClient(int id)
         {
             return await clientRepository.DeleteClient(id);
