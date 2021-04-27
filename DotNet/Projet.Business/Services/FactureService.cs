@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Projet.Business.DTO;
@@ -59,11 +60,12 @@ namespace Projet.Business.Services
                 DatePaiement = facture.DatePaiement,
                 Prix = facture.Prix,
 
-                //Produits = facture.ProduitFactures.Select(p => new ProduitDto
-                //{
-                //    Id = p.Produit.Id,
-                //    Nom = p.Produit.Nom,
-                //}).ToList(),
+                Produits = facture.ProduitFactures.Select(p => new ProduitDto
+                {
+                    Id = p.Produit.Id,
+                    Nom = p.Produit.Nom,
+                    Prix = p.Produit.Prix,
+                }).ToList(),
             };
 
             return factureDto;
@@ -71,11 +73,6 @@ namespace Projet.Business.Services
 
         private Facture DtoToModel(FactureDto dto)
         {
-            //if (entity == null)
-            //{
-            //    entity = new Facture();
-            //}
-
             Facture facture = new Facture
             {
                 Id = dto.Id,
@@ -87,34 +84,41 @@ namespace Projet.Business.Services
 
             };
 
+            if (dto.Produits?.Any() == true)
+            {
+                foreach (var produitDto in dto.Produits.Where(x => x.DtoState == DtoState.Deleted))
+                {
+                    var factureProduit =
+                        facture.ProduitFactures.FirstOrDefault(x =>
+                       x.ProduitId == produitDto.Id && x.FactureId == dto.Id);
+                    if (factureProduit != null)
+                    {
+                        facture.ProduitFactures.Remove(factureProduit);
+                    }
+                }
+
+                facture.ProduitFactures = facture.ProduitFactures ?? new List<ProduitFacture>();
+                foreach (var produitDto in dto.Produits.Where(w => w.DtoState == DtoState.Added))
+                {
+                    facture.ProduitFactures.Add(new ProduitFacture { ProduitId = produitDto.Id, FactureId = dto.Id });
+                }
+            }
+
             return facture;
+        }
 
-            //entity.Id = dto.Id;
-            //entity.ClientId = dto.ClientId;
-            //entity.Date = dto.Date;
-            //entity.Paiement = dto.Paiement;
-            //entity.DatePaiement = dto.DatePaiement;
-            //entity.Prix = dto.Prix;
-
-            //if (dto.Produits?.Any() == true)
-            //{
-            //    foreach (var produitDto in dto.Produits.Where(x => x.DtoState == DtoState.Deleted))
-            //    {
-            //        var factureProduit =
-            //            entity.ProduitFactures.FirstOrDefault(x =>
-            //           x.ProduitId == produitDto.Id && x.FactureId == dto.Id);
-            //        if (factureProduit != null)
-            //        {
-            //            entity.ProduitFactures.Remove(factureProduit);
-            //        }
-            //    }
-
-            //    entity.ProduitFactures = entity.ProduitFactures ?? new List<ProduitFacture>();
-            //    foreach (var produitDto in dto.Produits.Where(w => w.DtoState == DtoState.Added))
-            //    {
-            //        entity.ProduitFactures.Add(new ProduitFacture { ProduitId = produitDto.Id, FactureId = dto.Id });
-            //    }
-            //}
+        public Expression<Func<Facture, FactureListDto>> ModelToListDto()
+        {
+            return entity => new FactureListDto
+            {
+                Id = entity.Id,
+                ClientName = entity.Client.Nom + " " + entity.Client.Prenom,
+                Date = entity.Date,
+                Paiement = entity.Paiement,
+                DatePaiment = entity.DatePaiement,
+                Prix = entity.Prix,
+                Produits = string.Join(", ", entity.ProduitFactures.Select(x => x.Produit.Nom)),
+            };
         }
 
         private List<FactureDto> ListModelToDto(ICollection<Facture> shopItems)
