@@ -44,6 +44,13 @@ namespace Projet.Business.Services
             return factureDto;
         }
 
+        public List<FactureDto> GetAllFactures()
+        {
+            List<Facture> factures = factureRepository.GetAllFactures();
+            List<FactureDto> facturesDto = ListModelToDto(factures);
+            return facturesDto;
+        }
+
         public async Task<int> DeleteFacture(int id)
         {
             return await factureRepository.DeleteFacture(id);

@@ -44,6 +44,13 @@ namespace Projet.Business.Services
             return produitDto;
         }
 
+        public List<ProduitDto> GetAllProduits()
+        {
+            List<Produit> produits = produitRepository.GetAllProduits();
+            List<ProduitDto> produitsDto = ListModelToDto(produits);
+            return produitsDto;
+        }
+
         public async Task<int> DeleteProduit(int id)
         {
             return await produitRepository.DeleteProduit(id);

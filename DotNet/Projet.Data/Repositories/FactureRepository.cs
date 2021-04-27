@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using Projet.Data.Models;
 
@@ -35,11 +36,11 @@ namespace Projet.Data.Repositories
             return facture;
         }
 
-        //public async Task<Facture> GetAllItem(Facture facture)
-        //{
-        //    List<Facture> facture = await _context.Factures.ToList();
-        //    return facture;
-        //}
+        public List<Facture> GetAllFactures()
+        {
+            List<Facture> factures = _context.Factures.ToList();
+            return factures;
+        }
 
         public async Task<int> DeleteFacture(int id)
         {

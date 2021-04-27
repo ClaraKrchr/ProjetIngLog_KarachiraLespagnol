@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using Projet.Data.Models;
 
@@ -33,6 +34,12 @@ namespace Projet.Data.Repositories
         {
             Produit produit = await _context.Produits.FindAsync(id);
             return produit;
+        }
+
+        public List<Produit> GetAllProduits()
+        {
+            List<Produit> produits = _context.Produits.ToList();
+            return produits;
         }
 
         //public async Task<Produit> GetAllItem(Produit produit)

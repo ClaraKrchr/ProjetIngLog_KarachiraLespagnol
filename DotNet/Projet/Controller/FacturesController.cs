@@ -80,6 +80,20 @@ namespace Projet.Controller
             }
         }
 
+        [HttpGet("all/Facture")]
+        public ActionResult<List<FactureDto>> GetAllFactures()
+        {
+            try
+            {
+                return this.factureService.GetAllFactures();
+            }
+
+            catch (Exception e)
+            {
+                return this.StatusCode(500, "Internal Server error");
+            }
+        }
+
         //DELETE : api/Facture/5
         [HttpDelete("{id}/DeleteFacture")]
         public async Task<IActionResult> DeleteFacture(int id)
