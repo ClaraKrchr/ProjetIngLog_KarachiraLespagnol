@@ -13,7 +13,7 @@ namespace Projet.Data.ModelBuilders
             CreateClientModel(modelBuilder);
             CreateFactureModel(modelBuilder);
             CreateProduitModel(modelBuilder);
-            // CreateFactureProduitModel(modelBuilder);
+            CreateFactureProduitModel(modelBuilder);
         }
 
         private static void CreateClientModel(ModelBuilder modelBuilder)

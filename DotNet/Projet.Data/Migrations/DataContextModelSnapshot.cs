@@ -107,7 +107,7 @@ namespace Projet.Data.Migrations
 
                     b.HasIndex("ProduitId");
 
-                    b.ToTable("ProduitFacture");
+                    b.ToTable("ProduitFactures");
                 });
 
             modelBuilder.Entity("Projet.Data.Models.Facture", b =>

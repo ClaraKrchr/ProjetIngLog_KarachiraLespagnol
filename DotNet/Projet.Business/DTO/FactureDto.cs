@@ -20,7 +20,7 @@ namespace Projet.Business.DTO
 
         public int Prix { get; set; }
 
-        // public virtual ICollection<ProduitDto> Produits { get; set; }
+        public virtual ICollection<ProduitDto> Produits { get; set; }
 
         public DtoState DtoState { get; set; }
     }

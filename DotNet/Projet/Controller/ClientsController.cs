@@ -20,7 +20,7 @@ namespace Projet.Controller
             this.clientService = service;
         }
 
-        //POST : api/Shops
+        //POST : api/Clients
         [HttpPost("CreateClient")]
         public async Task<ActionResult<ClientDto>> Create(ClientDto dto)
         {
