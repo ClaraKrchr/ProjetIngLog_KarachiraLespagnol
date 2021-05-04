@@ -29,20 +29,20 @@ data-backdrop="static" data-keyboard="false"
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Mail</th>
-            <th>DateCreation</th>
+            <th>id</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>mail</th>
+            <th>dateCreation</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let dataItem of ClientsList">
-            <td>{{ dataItem.Id}}</td>
-            <td>{{ dataItem.Nom}}</td>
-            <td>{{ dataItem.Prenom}}</td>
-            <td>{{ dataItem.Mail}}</td>
-            <td>{{ dataItem.DateCreation}}</td>
+            <td>{{ dataItem.id}}</td>
+            <td>{{ dataItem.nom}}</td>
+            <td>{{ dataItem.prenom}}</td>
+            <td>{{ dataItem.mail}}</td>
+            <td>{{ dataItem.dateCreation}}</td>
             <td>
                 <button type="button" class="btn btn-light mr-1">
                     Edit

@@ -1,0 +1,5 @@
+{
+  "/rest/api/*": {
+    "target": "http://localhost:60026/api/"
+  }
+}

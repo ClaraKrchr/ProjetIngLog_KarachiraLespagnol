@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Projet.Business.DTO;
 using Projet.Business.Services;
+using System.Web.Http.Cors;
 
 namespace Projet.Controller
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientsController : ControllerBase
@@ -81,6 +84,7 @@ namespace Projet.Controller
             }
         }
 
+        // [EnableCors("MyallowSpecificOrigins")]
         [HttpGet("all/Client")]
         public ActionResult<List<ClientDto>> GetAllClients()
         {

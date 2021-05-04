@@ -17,8 +17,10 @@ namespace Projet
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        readonly string MyallowSpecificOrigins = "_myAllowSpecificOrigins";
 
+        public IConfiguration Configuration { get; }
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,6 +30,17 @@ namespace Projet
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(name: MyallowSpecificOrigins,
+            //        builder =>
+            //        {
+            //            builder.WithOrigins("*", "*").AllowAnyHeader().AllowAnyMethod();
+            //        });
+            //});
+
+            services.AddCors();
+
             services.AddDbContext<DataContext>();
             services.AddTransient<IClientService, ClientService>();
             services.AddTransient<IClientRepository, ClientRepository>();
@@ -50,6 +63,15 @@ namespace Projet
             }
 
             app.UseSwagger();
+            // app.UseCors(MyallowSpecificOrigins);
+
+            //app.UseCors(x => x
+            //        .WithOrigins(MyallowSpecificOrigins)
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader()
+            //        .AllowCredentials());
+
+            app.UseCors(builder => builder.AllowAnyOrigin());
 
             app.UseSwaggerUI(c =>
             {
