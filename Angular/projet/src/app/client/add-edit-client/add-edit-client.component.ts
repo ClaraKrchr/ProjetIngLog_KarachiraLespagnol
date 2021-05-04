@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-add-edit-client',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AddEditClientComponent implements OnInit {
 
   constructor() { }
+
+  @Input() client:any;
 
   ngOnInit(): void {
   }

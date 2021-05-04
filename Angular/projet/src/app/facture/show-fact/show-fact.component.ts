@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-show-fact',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowFactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  FacturesList: any=[];
 
   ngOnInit(): void {
+    this.refreshFacturesList();
+  }
+
+  refreshFacturesList(){
+    this.service.getAllFactures().subscribe(data=>{
+      this.FacturesList=data;
+    });
   }
 
 }
