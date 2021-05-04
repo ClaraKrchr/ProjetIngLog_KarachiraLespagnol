@@ -1,1 +1,30 @@
-<p>show-fact works!</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Client</th>
+      <th>Date</th>
+      <th>Paiement</th>
+      <th>Date de paiement</th>
+      <th>Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of FacturesList">
+      <td>{{ dataItem.Id}}</td>
+      <td>{{ dataItem.Client}}</td>
+      <td>{{ dataItem.Date}}</td>
+      <td>{{ dataItem.Paiement}}</td>
+      <td>{{ dataItem.DatePaiement}}</td>
+      <td>{{ dataItem.Prix}}</td>
+      <td>
+        <button type="button" class="btn btn-light mr-1">
+          Edit
+        </button>
+        <button type="button" class="btn btn-light mr-1">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
