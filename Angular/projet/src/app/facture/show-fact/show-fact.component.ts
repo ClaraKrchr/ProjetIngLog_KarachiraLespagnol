@@ -8,17 +8,38 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class ShowFactComponent implements OnInit {
 
-  constructor(private service:SharedService) { }
+  constructor(private service: SharedService) { }
 
-  FacturesList: any=[];
+  FacturesList: any = [];
+  ModalTitle: string;
+  ActivateAddEditFactComponent: boolean;
+  facture: any;
 
   ngOnInit(): void {
     this.refreshFacturesList();
   }
 
-  refreshFacturesList(){
-    this.service.getAllFactures().subscribe(data=>{
-      this.FacturesList=data;
+  addClick() {
+    this.facture = {
+      Id: 0,
+      Client: "",
+      Date: "",
+      Paiement: false,
+      DatePaiement: "",
+      Prix: 0,
+    }
+    this.ModalTitle = "Add facture";
+    this.ActivateAddEditFactComponent = true;
+  }
+
+  closeClick() {
+    this.ActivateAddEditFactComponent = false;
+    this.refreshFacturesList();
+  }
+
+  refreshFacturesList() {
+    this.service.getAllFactures().subscribe(data => {
+      this.FacturesList = data;
     });
   }
 
