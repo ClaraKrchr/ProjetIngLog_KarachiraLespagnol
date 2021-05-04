@@ -11,12 +11,12 @@ export class SharedService {
 
   constructor(private http:HttpClient) { }
 
-  // getClientList():Observable<any[]>{
-  //   return this.http.get<any>(this.APIUrl+'/department');
-  // }
+  getAllClients():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/Clients/all/Client');
+  }
 
   addClient(val:any){
-    return this.http.post(this.APIUrl+'/CreateClient',val);
+    return this.http.post(this.APIUrl+'/Clients/CreateClient',val);
   }
 
   updateClient(val:any){
@@ -28,12 +28,12 @@ export class SharedService {
   }
 
 
-  // getEmpList():Observable<any[]>{
-  //   return this.http.get<any>(this.APIUrl+'/Employee');
-  // }
+  getAllFactures():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/Factures/all/Facture');
+  }
 
   addFacture(val:any){
-    return this.http.post(this.APIUrl+'/CreateFacture',val);
+    return this.http.post(this.APIUrl+'/Factures/CreateFacture',val);
   }
 
   updateFacture(val:any){
@@ -45,12 +45,12 @@ export class SharedService {
   }
 
 
-  // getEmpList():Observable<any[]>{
-  //   return this.http.get<any>(this.APIUrl+'/Employee');
-  // }
+  getAllProduits():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/Produits/all/Produit');
+  }
 
   addProduit(val:any){
-    return this.http.post(this.APIUrl+'/CreateProduit',val);
+    return this.http.post(this.APIUrl+'/Produits/CreateProduit',val);
   }
 
   updateProduit(val:any){

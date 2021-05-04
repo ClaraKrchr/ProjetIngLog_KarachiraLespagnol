@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SharedService} from 'src/app/shared.service';
 
 @Component({
   selector: 'app-show-client',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowClientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  ClientsList: any=[];
 
   ngOnInit(): void {
+    this.refreshClientsList();
+  }
+
+  refreshClientsList(){
+    this.service.getAllClients().subscribe(data=>{
+      this.ClientsList=data;
+    });
   }
 
 }

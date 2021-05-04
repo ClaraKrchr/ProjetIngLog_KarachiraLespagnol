@@ -15,8 +15,9 @@ import { AddEditFactComponent } from './facture/add-edit-fact/add-edit-fact.comp
 import { SharedService } from './shared.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GenericComponent } from './generic/generic.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+// import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ShowProdComponent,
     AddEditProdComponent,
     ShowFactComponent,
-    AddEditFactComponent,
-    GenericComponent
+    AddEditFactComponent
+    // DynamicFormComponent,
+    // DynamicFormQuestionComponent
   ],
   imports: [
     BrowserModule,

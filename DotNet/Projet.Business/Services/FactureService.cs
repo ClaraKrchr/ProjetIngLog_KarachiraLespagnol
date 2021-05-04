@@ -71,6 +71,8 @@ namespace Projet.Business.Services
                 {
                     Id = p.Produit.Id,
                     Nom = p.Produit.Nom,
+                    Stock = p.Produit.Stock,
+                    Photo = p.Produit.Photo,
                     Prix = p.Produit.Prix,
                 }).ToList(),
             };
