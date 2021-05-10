@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace Projet.Controller
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "get, post, put, delete")]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientsController : ControllerBase

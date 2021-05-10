@@ -36,6 +36,15 @@ export class ShowClientComponent implements OnInit {
     this.refreshClientsList();
   }
 
+  deleteClient(item){
+    if(confirm('Êtes-vous sûr ?')){
+      this.service.deleteClient(item.id).subscribe(data=>{
+        alert(data.toString());
+        this.refreshClientsList();
+      })
+    }
+  }
+
   refreshClientsList(){
     this.service.getAllClients().subscribe(data=>{
       this.ClientsList=data;

@@ -37,6 +37,15 @@ export class ShowFactComponent implements OnInit {
     this.refreshFacturesList();
   }
 
+  deleteFacture(item){
+    if(confirm('Êtes-vous sûr ?')){
+      this.service.deleteFacture(item.id).subscribe(data=>{
+        alert(data.toString());
+        this.refreshFacturesList();
+      })
+    }
+  }
+
   refreshFacturesList() {
     this.service.getAllFactures().subscribe(data => {
       this.FacturesList = data;

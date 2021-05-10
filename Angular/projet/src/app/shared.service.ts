@@ -8,7 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class SharedService {
   // readonly APIUrl="/rest/api"
-  readonly APIUrl="http://localhost:60026/api/"
+  // readonly APIUrl="http://localhost:60026/api/"
+  readonly APIUrl = "https://localhost:44376/api/"
   readonly APIPhoto="https://localhost:44376/Photos"
 
   constructor(private http:HttpClient) { }
@@ -18,15 +19,15 @@ export class SharedService {
   }
 
   addClient(val:any){
-    return this.http.post(this.APIUrl+'/Clients/CreateClient',val);
+    return this.http.post(this.APIUrl+'Clients/CreateClient',val);
   }
 
   updateClient(val:any){
-    return this.http.put(this.APIUrl+'/Clients/{id}/UpdateClient',val);
+    return this.http.put(this.APIUrl+'Clients/{id}/UpdateClient',val);
   }
 
   deleteClient(val:any){
-    return this.http.delete(this.APIUrl+'/Clients/{id}/DeleteClient'+val);
+    return this.http.delete(this.APIUrl+'Clients/' + val + '/DeleteClient');
   }
 
 
@@ -35,15 +36,15 @@ export class SharedService {
   }
 
   addFacture(val:any){
-    return this.http.post(this.APIUrl+'/Factures/CreateFacture',val);
+    return this.http.post(this.APIUrl+'Factures/CreateFacture',val);
   }
 
   updateFacture(val:any){
-    return this.http.put(this.APIUrl+'/Factures/{id}/UpdateFacture',val);
+    return this.http.put(this.APIUrl+'Factures/{id}/UpdateFacture',val);
   }
 
   deleteFacture(val:any){
-    return this.http.delete(this.APIUrl+'/Factures/{id}/DeleteClient'+val);
+    return this.http.delete(this.APIUrl+'Factures/' + val + '/DeleteClient');
   }
 
 
@@ -52,18 +53,18 @@ export class SharedService {
   }
 
   addProduit(val:any){
-    return this.http.post(this.APIUrl+'/Produits/CreateProduit',val);
+    return this.http.post(this.APIUrl+'Produits/CreateProduit',val);
   }
 
   updateProduit(val:any){
-    return this.http.put(this.APIUrl+'/Produits/{id}/UpdateProduit',val);
+    return this.http.put(this.APIUrl+'Produits/{id}/UpdateProduit',val);
   }
 
   deleteProduit(val:any){
-    return this.http.delete(this.APIUrl+'/Produits/{id}/DeleteProduit'+val);
+    return this.http.delete(this.APIUrl+'Produits/' + val + '/DeleteProduit');
   }
 
   UploadPhoto(val:any){
-    return this.http.post(this.APIUrl+'/Produit/SaveFile',val);
+    return this.http.post(this.APIUrl+'Produit/SaveFile',val);
   }
 }

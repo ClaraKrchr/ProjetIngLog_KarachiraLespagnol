@@ -36,6 +36,15 @@ export class ShowProdComponent implements OnInit {
     this.refreshProduitsList();
   }
 
+  deleteProduit(item){
+    if(confirm('Êtes-vous sûr ?')){
+      this.service.deleteProduit(item.id).subscribe(data=>{
+        alert(data.toString());
+        this.refreshProduitsList();
+      })
+    }
+  }
+
   refreshProduitsList() {
     this.service.getAllProduits().subscribe(data => {
       this.ProduitsList = data;

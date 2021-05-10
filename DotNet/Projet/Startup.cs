@@ -19,7 +19,7 @@ namespace Projet
     {
         readonly string MyallowSpecificOrigins = "_myAllowSpecificOrigins";
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; set; }
         
         public Startup(IConfiguration configuration)
         {
@@ -71,7 +71,7 @@ namespace Projet
             //        .AllowAnyHeader()
             //        .AllowCredentials());
 
-            app.UseCors(builder => builder.AllowAnyOrigin());
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod());
 
             app.UseSwaggerUI(c =>
             {
