@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, VERSION } from '@angular/core';
+import { QuestionProduitService } from 'src/app/_services/questionProduit.service';
 
 @Component({
   selector: 'app-add-edit-prod',
@@ -7,9 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AddEditProdComponent implements OnInit {
 
-  constructor() { }
-
   @Input() produit: any;
+  questions: any[];
+  version = VERSION.full;
+  
+  constructor(service: QuestionProduitService) {
+    this.questions = service.getQuestions();
+  }
 
   ngOnInit(): void {
   }

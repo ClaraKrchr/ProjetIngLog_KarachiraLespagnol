@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, VERSION } from '@angular/core';
+import { QuestionClientService } from 'src/app/_services/questionClient.service';
 
 @Component({
   selector: 'app-add-edit-client',
@@ -7,9 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AddEditClientComponent implements OnInit {
 
-  constructor() { }
-
   @Input() client:any;
+  questions: any[];
+  version = VERSION.full;
+  
+  constructor(service: QuestionClientService) {
+    this.questions = service.getQuestions();
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, VERSION } from '@angular/core';
+import { QuestionFactureService } from 'src/app/_services/questionFacture.service';
 
 @Component({
   selector: 'app-add-edit-fact',
@@ -7,9 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AddEditFactComponent implements OnInit {
 
-  constructor() { }
-
   @Input() facture: any;
+  questions: any[];
+  version = VERSION.full;
+  
+  constructor(service: QuestionFactureService) {
+    this.questions = service.getQuestions();
+  }
 
   ngOnInit(): void {
   }

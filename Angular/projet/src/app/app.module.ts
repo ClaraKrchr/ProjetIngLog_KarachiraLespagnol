@@ -16,8 +16,12 @@ import { SharedService } from './shared.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
-// import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
+import { QuestionClientService } from './_services/questionClient.service';
+import { QuestionControlService } from './_services';
+import { QuestionFactureService } from './_services/questionFacture.service';
+import { QuestionProduitService } from './_services/questionProduit.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +34,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ShowProdComponent,
     AddEditProdComponent,
     ShowFactComponent,
-    AddEditFactComponent
-    // DynamicFormComponent,
-    // DynamicFormQuestionComponent
+    AddEditFactComponent,
+    DynamicFormComponent,
+    DynamicFormQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [SharedService],
+  providers: [SharedService, QuestionClientService,  QuestionControlService, QuestionFactureService, QuestionProduitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
