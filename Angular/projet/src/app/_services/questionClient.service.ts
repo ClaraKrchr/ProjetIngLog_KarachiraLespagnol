@@ -16,7 +16,7 @@ export class QuestionClientService {
 
       new TextboxQuestion({
         key: 'nom',
-        label: 'Nom',
+        label: 'nom',
         placeholder: 'Nom',
         required: true,
         order: 1
@@ -24,7 +24,7 @@ export class QuestionClientService {
 
       new TextboxQuestion({
         key: 'prenom',
-        label: 'Prenom',
+        label: 'prenom',
         placeholder: 'Prénom',
         required: true,
         order: 2

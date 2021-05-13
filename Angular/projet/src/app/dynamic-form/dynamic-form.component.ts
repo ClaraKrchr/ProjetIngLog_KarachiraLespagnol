@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { QuestionBase } from '../_models';
 import { QuestionControlService } from '../_services';
 
@@ -15,6 +15,17 @@ export class DynamicFormComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
+  fieldsData: string[];
+
+  @Input() set fields(data: string[]) {
+    this.setFormValues(data);
+    this.fieldsData = data;
+  }
+
+  get fields() {
+    return this.fieldsData;
+  }
+
   constructor(private qcs: QuestionControlService) { }
 
   ngOnInit() {
@@ -22,7 +33,18 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.payLoad = this.form.value;
+    // this.payLoad = this.form.value;
+    this.setFormValues(this.form.value);
+  }
+
+  public setFormValues(data: string[]){
+    if (data) {
+      this.form = new FormGroup({});
+      data.forEach(item => {
+        this.form.addControl(item, new FormControl());
+      });
+    }
+    this.form.reset();
   }
 
 }

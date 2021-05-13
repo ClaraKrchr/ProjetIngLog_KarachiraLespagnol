@@ -15,16 +15,12 @@ export class QuestionFactureService {
 
         const questions: QuestionBase<any>[] = [
 
-            new DropdownQuestion({
+            new TextboxQuestion({
                 key: 'clientId',
-                label: 'Client',
-                options: [
-                    { key: '1', value: 'Client1' },
-                    { key: '2', value: 'Client2' },
-                    { key: '3', value: 'Client3' },
-                    { key: '4', value: 'Client4' }
-                ],
-                placeholder: 'Choisir un client',
+                label: 'ClientId',
+                type: 'number',
+                placeholder: 'ClientId',
+                required: true,
                 order: 1
             }),
 
@@ -32,6 +28,7 @@ export class QuestionFactureService {
                 key: 'date',
                 label: 'Date',
                 type: 'date',
+                required: true,
                 order: 2
             }),
 

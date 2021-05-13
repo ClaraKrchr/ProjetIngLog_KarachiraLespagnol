@@ -71,7 +71,7 @@ namespace Projet
             //        .AllowAnyHeader()
             //        .AllowCredentials());
 
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod());
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseSwaggerUI(c =>
             {

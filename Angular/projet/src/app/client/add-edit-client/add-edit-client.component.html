@@ -1,10 +1,10 @@
 <app-dynamic-form #dynamicForm
-                        [questions]="questions"></app-dynamic-form>
+                        [questions]="questions" [fields]="fields"></app-dynamic-form>
 
-<button (click)="addClient()" *ngIf="client.Id==0" class="btn btn-primary">
+<button (click)="addClient()" *ngIf="client.id==0" class="btn btn-primary">
     Ajouter
 </button>
 
-<button (click)="updateClient()" *ngIf="client.Id!=0" class="btn btn-primary">
+<button (click)="updateClient()" *ngIf="client.id!=0" class="btn btn-primary">
     Update
 </button>

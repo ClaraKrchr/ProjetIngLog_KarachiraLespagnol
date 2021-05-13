@@ -17,7 +17,9 @@ export class AddEditClientComponent implements OnInit {
   nom: string;
   prenom: string;
   mail: string;
-  date: string;
+  date: Date;
+
+  fields = [];
 
   constructor(question: QuestionClientService,
     private service: SharedService) {
@@ -29,7 +31,7 @@ export class AddEditClientComponent implements OnInit {
     this.nom = this.client.nom;
     this.prenom = this.client.prenom;
     this.mail = this.client.mail;
-    this.date = this.client.date;
+    this.date = this.client.dateCreation;
   }
 
   addClient() {

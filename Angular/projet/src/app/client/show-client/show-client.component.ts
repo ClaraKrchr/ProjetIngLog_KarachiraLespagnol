@@ -21,11 +21,11 @@ export class ShowClientComponent implements OnInit {
 
   addClick(){
     this.client={
-      Id:0,
-      Nom:"",
-      Prenom:"",
-      Mail:"",
-      DateCreation:"",
+      id:0,
+      // nom:"",
+      // prenom:"",
+      // mail:"",
+      // dateCreation:"",
     }
     this.ModalTitle="Ajouter client";
     this.ActivateAddEditClientComponent=true;
