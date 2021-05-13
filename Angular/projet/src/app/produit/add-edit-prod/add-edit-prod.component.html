@@ -1,2 +1,9 @@
-<app-dynamic-form #dynamicForm
-                        [questions]="questions"></app-dynamic-form>
+<app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
+
+<button (click)="addProduit()" *ngIf="produit.Id==0" class="btn btn-primary">
+    Ajouter
+</button>
+
+<button (click)="updateProduit()" *ngIf="produit.Id!=0" class="btn btn-primary">
+    Update
+</button>

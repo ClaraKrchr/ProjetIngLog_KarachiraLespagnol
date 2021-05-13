@@ -31,6 +31,12 @@ export class ShowProdComponent implements OnInit {
     this.ActivateAddEditProdComponent = true;
   }
 
+  editClick(item){
+    this.produit=item;
+    this.ModalTitle="Edit Produit";
+    this.ActivateAddEditProdComponent=true;
+  }
+
   closeClick() {
     this.ActivateAddEditProdComponent = false;
     this.refreshProduitsList();

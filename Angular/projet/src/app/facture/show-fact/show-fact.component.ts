@@ -32,6 +32,12 @@ export class ShowFactComponent implements OnInit {
     this.ActivateAddEditFactComponent = true;
   }
 
+  editClick(item){
+    this.facture=item;
+    this.ModalTitle="Edit Facture";
+    this.ActivateAddEditFactComponent=true;
+  }
+
   closeClick() {
     this.ActivateAddEditFactComponent = false;
     this.refreshFacturesList();

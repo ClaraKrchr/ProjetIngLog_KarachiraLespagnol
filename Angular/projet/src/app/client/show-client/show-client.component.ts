@@ -27,7 +27,13 @@ export class ShowClientComponent implements OnInit {
       Mail:"",
       DateCreation:"",
     }
-    this.ModalTitle="Add client";
+    this.ModalTitle="Ajouter client";
+    this.ActivateAddEditClientComponent=true;
+  }
+
+  editClick(item){
+    this.client=item;
+    this.ModalTitle="Edit Client";
     this.ActivateAddEditClientComponent=true;
   }
 
