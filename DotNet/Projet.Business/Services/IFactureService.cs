@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Projet.Business.DTO;
 using System.Collections.Generic;
-using Projet.Data.Models;
 
 namespace Projet.Business.Services
 {

@@ -22,7 +22,7 @@ export class ShowClientComponent implements OnInit {
   addClick(){
     this.client={
       id:0,
-      // nom:"",
+      // nom:"clara",
       // prenom:"",
       // mail:"",
       // dateCreation:"",
