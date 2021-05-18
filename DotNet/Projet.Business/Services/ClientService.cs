@@ -84,10 +84,10 @@ namespace Projet.Business.Services
             return client;
         }
 
-        private List<ClientDto> ListModelToDto(ICollection<Client> shopItems)
+        private List<ClientDto> ListModelToDto(ICollection<Client> clients)
         {
-            List<ClientDto> shopItemDtos = shopItems.Select(x => ModelToDto(x)).ToList();
-            return shopItemDtos;
+            List<ClientDto> clientDtos = clients.Select(x => ModelToDto(x)).ToList();
+            return clientDtos;
         }
     }
 }

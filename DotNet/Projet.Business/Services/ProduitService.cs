@@ -82,10 +82,10 @@ namespace Projet.Business.Services
             return produit;
         }
 
-        private List<ProduitDto> ListModelToDto(ICollection<Produit> shopItems)
+        private List<ProduitDto> ListModelToDto(ICollection<Produit> produits)
         {
-            List<ProduitDto> shopItemDtos = shopItems.Select(x => ModelToDto(x)).ToList();
-            return shopItemDtos;
+            List<ProduitDto> produitDtos = produits.Select(x => ModelToDto(x)).ToList();
+            return produitDtos;
         }
     }
 }

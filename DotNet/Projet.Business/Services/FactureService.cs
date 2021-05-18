@@ -125,10 +125,10 @@ namespace Projet.Business.Services
             };
         }
 
-        private List<FactureDto> ListModelToDto(ICollection<Facture> shopItems)
+        private List<FactureDto> ListModelToDto(ICollection<Facture> factures)
         {
-            List<FactureDto> shopItemDtos = shopItems.Select(x => ModelToDto(x)).ToList();
-            return shopItemDtos;
+            List<FactureDto> factureDtos = factures.Select(x => ModelToDto(x)).ToList();
+            return factureDtos;
         }
     }
 }
