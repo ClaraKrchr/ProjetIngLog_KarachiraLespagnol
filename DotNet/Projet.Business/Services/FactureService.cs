@@ -68,11 +68,7 @@ namespace Projet.Business.Services
 
                 Produits = facture.ProduitFactures.Select(p => new ProduitDto
                 {
-                    Id = p.Produit.Id,
-                    Nom = p.Produit.Nom,
-                    Stock = p.Produit.Stock,
-                    Photo = p.Produit.Photo,
-                    Prix = p.Produit.Prix,
+                    Id = p.ProduitId
                 }).ToList(),
             };
 
