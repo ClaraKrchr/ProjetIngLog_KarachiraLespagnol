@@ -10,7 +10,7 @@ import { QuestionControlService } from '../_services';
   styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
-  constructor(private qcs: QuestionControlService) { }
+  constructor(protected qcs: QuestionControlService) { }
 
   @Input() questions: QuestionBase<any>[] = [];
   form: FormGroup;
@@ -41,7 +41,7 @@ export class DynamicFormComponent implements OnInit {
         this.form.addControl(item, new FormControl());
       });
     }
-    this.form.reset();
+    // this.form.reset();
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, VERSION } from '@angular/core';
+import { DynamicFormComponent } from 'src/app/dynamic-form/dynamic-form.component';
 import { SharedService } from 'src/app/shared.service';
+import { QuestionControlService } from 'src/app/_services';
 import { QuestionClientService } from 'src/app/_services/questionClient.service';
 
 @Component({
@@ -7,7 +9,7 @@ import { QuestionClientService } from 'src/app/_services/questionClient.service'
   templateUrl: './add-edit-client.component.html',
   styleUrls: ['./add-edit-client.component.scss']
 })
-export class AddEditClientComponent implements OnInit {
+export class AddEditClientComponent extends DynamicFormComponent implements OnInit{
 
   @Input() client: any;
   questions: any[];
@@ -19,14 +21,16 @@ export class AddEditClientComponent implements OnInit {
   mail: string;
   date: Date;
 
-  fields = [];
+  // fields = [];
 
   constructor(question: QuestionClientService,
-    private service: SharedService) {
+    private service: SharedService,
+    protected qcs: QuestionControlService) {
+    super(qcs);
     this.questions = question.getQuestions();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.id = this.client.id;
     this.nom = this.client.nom;
     this.prenom = this.client.prenom;
@@ -42,6 +46,8 @@ export class AddEditClientComponent implements OnInit {
       mail: this.mail,
       date: this.date
     };
+    // val.nom = "coucou";
+    val.nom = this.form.value("nom");
     this.service.addClient(val).subscribe(res => {
       alert(res.toString());
     });

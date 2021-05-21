@@ -14,17 +14,6 @@ export class DynamicFormQuestionComponent implements OnInit {
   @Input() form: FormGroup;
   get isValid() { return this.form.controls[this.question.key].valid; }
 
-  // fieldsData: string[];
-
-  // @Input() set fields(data: string[]) {
-  //   this.setFormValues(data);
-  //   this.fieldsData = data;
-  // }
-
-  // get fields() {
-  //   return this.fieldsData;
-  // }
-
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() { }
@@ -60,14 +49,4 @@ export class DynamicFormQuestionComponent implements OnInit {
   public questionLabel(index?: number): string {
     return this.questionIsIterable ? `${this.question.label} n°${index + 1}` : this.question.label;
   }
-
-  // public setFormValues(data: string[]){
-  //   if (data) {
-  //     this.form = new FormGroup({});
-  //     data.forEach(item => {
-  //       this.form.addControl(item, new FormControl());
-  //     });
-  //   }
-  //   this.form.reset();
-  // }
 }
