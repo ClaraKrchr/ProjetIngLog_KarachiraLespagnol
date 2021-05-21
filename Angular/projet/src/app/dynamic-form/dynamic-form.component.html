@@ -8,15 +8,12 @@
                     [form]="form"></app-question>
     </div>
 <br>
-    <!-- <div class="form-row">
-      <button type="submit"
-              [disabled]="!form.valid" class="btn btn-primary float-right m-2">Save</button>
-    </div> -->
   </form>
+  <p>{{ form.value | json }}</p>
 
-  <div *ngIf="payLoad"
+  <!-- <div *ngIf="payLoad"
        class="form-row">
     <strong>Saved the following values</strong><br>
     <pre><code>{{ payLoad | json }}</code></pre>
-  </div>
+  </div> -->
 </div>

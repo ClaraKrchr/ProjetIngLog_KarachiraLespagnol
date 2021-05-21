@@ -37,8 +37,8 @@ export class AddEditClientComponent implements OnInit {
   addClient() {
     var val = {
       id: this.id,
-      nom: this.nom,
-      prenom: this.prenom,
+      nom: this.questions.values.name,
+      prenom: this.questions.values.name,
       mail: this.mail,
       date: this.date
     };

@@ -10,14 +10,14 @@ import { QuestionControlService } from '../_services';
   styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
+  constructor(private qcs: QuestionControlService) { }
 
   @Input() questions: QuestionBase<any>[] = [];
   form: FormGroup;
-  payLoad = '';
-
   fieldsData: string[];
 
-  @Input() set fields(data: string[]) {
+  @Input() 
+  set fields(data: string[]) {
     this.setFormValues(data);
     this.fieldsData = data;
   }
@@ -26,14 +26,11 @@ export class DynamicFormComponent implements OnInit {
     return this.fieldsData;
   }
 
-  constructor(private qcs: QuestionControlService) { }
-
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
   }
 
   onSubmit() {
-    // this.payLoad = this.form.value;
     this.setFormValues(this.form.value);
   }
 
